@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Socket.IO chat</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js" ></script>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            $(window).load(function() {
+                $('#myModal').modal('show');
+            });
+        </script>
+    </head>
+    <body>
+        <div class="modal fade" id="myModal">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h3>Enter username</h3>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Enter your name to get started:</label>
+                        <input type="text" class="form-control" id="username" placeholder="ie. Johnnn">
+                    </div>
+                    <button id="saveUser" type="submit" class="btn btn-default">Get started!</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn">Close</a>
+            </div>
+        </div>
+        <ul id="messages"></ul>
+        <form id="chatInput" action="">
+            <input id="m" autocomplete="off" /><button>Send</button>
+        </form>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+            $('form').submit(function() {
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+                return false;
+            });
+            $('#saveUser').click(function(){
+                    $('#myModal').modal('hide');
+            });
+            socket.on('chat message', function(msg) {
+                $('#messages').append($('<li>').text(msg));
+            });
+        </script>
+</html>
