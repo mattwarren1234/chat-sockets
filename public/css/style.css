@@ -1,7 +1,82 @@
+body {
+    background: #949CB1;
+    color: #324067;
+}
+
 #messages { list-style-type: none; margin: 0; padding: 0; }
 #messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
+#messages li:nth-child(odd) { background: #C7CBD6; }
 
-#chatInput { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+.modal{
+    color: #C7CBD6;
+    font-weight:100;
+}
+.modal-header h3{
+        color: #C7CBD6;
+    font-weight:100;
+}
+.form-group input{
+       font-weight:200;
+}
+#welcomeMessage{
+    color: #C7CBD6;
+}
+#chatInput {
+    background: #4B597E; 
+    padding: 3px; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%;
+}
+.userList{
+    font-size: 10px;
+}
 
-#chatInput input {width: 90%}
+.userCount{
+    
+}
+
+
+#chatInput input {
+    margin-left:1%;
+    margin-right:1%;
+    width: 78%;
+    float: left;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#chatInput button{
+    margin-left:1%;
+    margin-right:1%;
+    width: 18%;
+    float: right;
+    font-weight:200;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.message span {
+    margin-left:2%;
+    margin-right:2%;
+}
+
+.message .content{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.message .username{
+    font-weight:100;
+    float: left;
+}
+
+.message .timestamp{
+    font-weight:100;
+    float: right;
+    margin-right:5%;
+}
