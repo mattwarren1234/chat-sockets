@@ -48,7 +48,7 @@
             $("#chatInput").submit(function() {
                 var chatMessage = $('#m').val();
                 if (isEmpty(chatMessage))
-                    return;
+                    return false;
                 var msg = {
                     user: username,
                     content: $('#m').val(),
@@ -75,25 +75,33 @@
                     .append($("<span class='username'>").text(msg.user))
                     .append($("<span class='content'>").text(msg.content))
                     .append($("<span class='timestamp'>").text(timestamp))
-                    );
+                    .hide()
+                    .fadeIn(200));
+
 //                    .text(text));
 
             });
             socket.on('user left', function(name) {
                 $('#messages').append(
                     $("<li class='newUser'>")
-                    .text(name + ' has left the chat.'));
+                    .text(name + ' has left the chat.')
+                    .hide()
+                    .fadeIn(500));
             });
             socket.on('new user', function(user) {
                 $('#messages').append(
                     $("<li class='newUser'>")
-                    .text(user + ' connected.'));
+                    .text(user + ' connected.')
+
+                    );
             });
             socket.on('user list', function(users) {
                 var peopleOrPerson = users.length === 1 ? "person" : "people";
                 $('#messages').append(
                     $("<li class='userList'>")
                     .text(users.length + " " + peopleOrPerson + " currently on. Current users : " + users.join(", "))
+                    .hide()
+                    .fadeIn(500)
                     );
             });
 

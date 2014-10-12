@@ -64,6 +64,7 @@ body {
 #chatInput button{
     margin-left:1%;
     margin-right:1%;
+    background: white;
     width: 18%;
     float: right;
     font-weight:200;
