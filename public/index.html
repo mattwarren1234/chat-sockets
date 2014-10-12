@@ -42,7 +42,13 @@
         <script>
             var username = '';
             var socket = io();
+            var isEmpty = function(input) {
+                return $.trim(input) === "";
+            };
             $("#chatInput").submit(function() {
+                var chatMessage = $('#m').val();
+                if (isEmpty(chatMessage))
+                    return;
                 var msg = {
                     user: username,
                     content: $('#m').val(),
@@ -53,8 +59,9 @@
                 return false;
             });
             $('#saveUser').click(function() {
-                //TODO : SAVE $('#username').val()); TO SERVER
                 username = $('#username').val();
+                if (isEmpty(username))
+                    return false;
                 socket.emit('add user', username);
                 $('#myModal').modal('hide');
                 $('#welcomeMessage').text("Welcome, " + username + ". Begin chatting below!")
