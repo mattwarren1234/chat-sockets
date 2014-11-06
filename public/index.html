@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
         <script type="text/javascript">
             $(window).load(function() {
                 $('#myModal').modal('show');
@@ -14,7 +13,7 @@
         </script>
     </head>
     <body>
-        <div class="modal fade" id="myModal">
+        <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
             <div class="modal-header"> 
                 <h3>Welcome to socket-chat</h3>
             </div>
@@ -28,16 +27,18 @@
                 </form>
             </div>
         </div> <!--modal-->
-        <div id="top">
-            <h4 id="welcomeMessage"></h4>
+        
+        
+        <div class="top">
+            <h4 class="primary" id="welcomeMessage"></h4>
+            <a class="secondary">About</a>
         </div>
-        <div>
+        <div id="chatWindow">
             <ul id="messages"></ul>
             <form id="chatInput" action="">
                 <input id="m" autocomplete="off" /><button type="submit" class="">Send</button>
             </form>
         </div>
-
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var username = '';
