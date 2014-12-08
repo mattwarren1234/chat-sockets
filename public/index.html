@@ -18,6 +18,11 @@
                 <h3>Welcome to socket-chat</h3>
             </div>
             <div class="modal-body">
+                <h5>This app uses <a href="http://socket.io/">socket.io</a> And jquery to create a simple chat app.</h5>
+                <h5>
+                    Testing it out by yourself? Open the app in several tabs to give it a try!
+                </h5>
+                <br />
                 <form role="form">
                     <div class="form-group">
                         <label for="username">Enter your name to get started:</label>
@@ -46,6 +51,7 @@
             var isEmpty = function(input) {
                 return $.trim(input) === "";
             };
+            $("#m").focus();
             $("#chatInput").submit(function() {
                 var chatMessage = $('#m').val();
                 if (isEmpty(chatMessage))
