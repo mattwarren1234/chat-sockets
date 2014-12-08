@@ -1,16 +1,32 @@
+html {
+    height: 100%;
+    color : rgb(2, 2, 99);
+}
 body {
     margin:8%;
     margin-top:4%;
     font-size:150%;
-    /*background: #949CB1;*/
-    /*color: #324067;*/
+    height: 100%;
+    color : rgb(2, 2, 99);
 }
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { 
-    /*background: #C7CBD6;*/ 
+input {
+    padding: 3px;
+    border-color : rgb(2, 2, 99);
+}
+.container {
+    height: 100%;
+    max-width: 760px;
 }
 
+#messages { list-style-type: none; margin: 0; padding: 0; }
+
+#messages li { padding: 5px 10px; }
+
+.top {
+    margin: 0 auto;
+    padding-bottom: 5px;
+    border-bottom: 1px solid;
+}
 .top .primary{
     display:inline;
     text-align: left;
@@ -21,13 +37,14 @@ body {
 }
 
 #chatWindow {
-    position:fixed;
-    width:85%;
-    height:60%;
+    margin: 0 auto;
+    height:70%;
+    border-left: 2px solid rgb(239, 239, 239);
+    border-right: 2px solid rgb(239, 239, 239);
 }
 
 #messages{
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-top: 2%;
     margin-bottom: 2%;
     width:100%;
@@ -35,7 +52,6 @@ body {
 }
 
 .modal{
-    /*color: #C7CBD6;*/
     background: whitesmoke;
     font-weight:100;
     margin: 10%;
@@ -45,17 +61,14 @@ body {
     bottom: auto;
 }
 .modal-header h3{
-    /*color: #C7CBD6;*/
     font-weight:100;
 }
 .form-group input{
     font-weight:200;
 }
 #welcomeMessage{
-    /*color: #C7CBD6;*/
 }
 #chatInput {
-    /*background: #4B597E;*/ 
     padding: 3px; 
     bottom: 0; 
     width: 100%;
@@ -64,21 +77,13 @@ body {
     font-size: 10px;
 }
 
-#chatInput{
-    width: 80%;
-}
-
 #chatInput input {
-    margin-left:1%;
-    margin-right:1%;
     width: 78%;
     float: left;
 }
 button{
     border:1px;
     border-color: black;
-    margin-left:1%;
-    margin-right:1%;
     background: lightgray;
     color:rgb(54, 49, 49);
     width: 18%;
@@ -89,6 +94,15 @@ button{
 button:hover{
     background-color:black;
     color:white;
+}
+li:nth-child(odd) {
+    background-color: lightgray;
+}
+li:nth-child(even) {
+    background-color: white;
+}
+.message {
+    border-radius: .3em;
 }
 
 .message span {
@@ -111,4 +125,13 @@ button:hover{
     font-weight:100;
     float: right;
     margin-right:5%;
+}
+#m {
+    border-bottom-left-radius: 10px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.send {
+    border: 2px solid black;
+    border-bottom-right-radius: 10px;
 }

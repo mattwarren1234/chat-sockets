@@ -4,8 +4,8 @@
         <title>Socket.IO chat</title>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js" ></script>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript">
             $(window).load(function() {
                 $('#myModal').modal('show');
@@ -28,17 +28,17 @@
             </div>
         </div> <!--modal-->
         
-        
-        <div class="top">
-            <h4 class="primary" id="welcomeMessage"></h4>
-            <a class="secondary">About</a>
-        </div>
-        <div id="chatWindow">
-            <ul id="messages"></ul>
-            <form id="chatInput" action="">
-                <input id="m" autocomplete="off" /><button type="submit" class="">Send</button>
-            </form>
-        </div>
+        <div class="container">
+           <div class="top">
+              <h4 class="primary" id="welcomeMessage"></h4>
+          </div>
+          <div id="chatWindow">
+              <ul id="messages"></ul>
+              <form id="chatInput" action="">
+                  <input id="m" autocomplete="off" /><button class="send" type="submit" class="">Send</button>
+              </form>
+          </div>
+        </div> <!-- container -->
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var username = '';
@@ -57,6 +57,7 @@
                 };
                 socket.emit('chat message', msg);
                 $('#m').val('');
+                $("#messages").animate({ scrollTop: $('#messages')[0].scrollHeight}, 'slow');
                 return false;
             });
             $('#saveUser').click(function() {
@@ -65,7 +66,7 @@
                     return false;
                 socket.emit('add user', username);
                 $('#myModal').modal('hide');
-                $('#welcomeMessage').text("Welcome, " + username + ". Begin chatting below!")
+                $('#welcomeMessage').text("Welcome, " + username + ". Begin chatting below!");
                 return false;
             });
 
@@ -78,9 +79,6 @@
                     .append($("<span class='timestamp'>").text(timestamp))
                     .hide()
                     .fadeIn(200));
-
-//                    .text(text));
-
             });
             socket.on('user left', function(name) {
                 $('#messages').append(
